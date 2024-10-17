@@ -252,7 +252,7 @@
                             tr.content = v1;
                             if (window.hasOwnProperty(k1 + '_process')) {
                                 /*jslint evil: true */
-                                tr.content = eval(k1 + '_process')(v1);
+                                tr.content = window[k1 + '_process'](v1);
                             }
 
                             _detailData4tpe.push('<tr><td>' + tr.thead + '</td><td>' + tr.content + '</td></tr>');

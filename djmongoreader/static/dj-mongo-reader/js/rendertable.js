@@ -107,7 +107,7 @@ $(function () {
         var _tmp = obj[v];
         if (window.hasOwnProperty(v + '_process')) {
           /*jslint evil: true */
-          _tmp = eval(v + '_process')(_tmp, obj);
+          _tmp = window[v + '_process'](_tmp, obj);
         }
         _tds.push({content: _tmp});
       });
@@ -146,7 +146,7 @@ $(function () {
     var _detailArr = [];
     $.each(detailData, function (k, v) {
       if (window.hasOwnProperty(k + '_process')) {
-        _detailArr.push((renderTable.columns_trans.hasOwnProperty(k) ? renderTable.columns_trans[k] : k) + ':' + eval(k + '_process')(v, detailData) + '\n');
+        _detailArr.push((renderTable.columns_trans.hasOwnProperty(k) ? renderTable.columns_trans[k] : k) + ':' + window[k + '_process'](v, detailData) + '\n');
       } else {
         _detailArr.push((renderTable.columns_trans.hasOwnProperty(k) ? renderTable.columns_trans[k] : k) + ':' + v + '\n');
       }

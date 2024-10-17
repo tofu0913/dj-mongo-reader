@@ -140,7 +140,7 @@
 {% block dj-mongo-rest-extra-style %}
 {% endblock %}
 
-<script type='text/javascript'>
+<script nonce="{{request.csp_nonce}}" type='text/javascript'>
     var db = '{{db}}';
     var col = '{{col}}';
     var cmd = '{{cmd}}';
